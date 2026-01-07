@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+
+  <link rel="icon" type="image/png" href="images/téléchargement__1_-removebg-preview.png">
+  <title>SCB SYSTEMS - Leader Africain de l'Ingénierie et de la Technologie</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Boxicons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  
+  <style>
+    /* Styles globaux */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    
+    /* Animation fade-in */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(0.5rem);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    /* Gradient animé */
+    .animate-gradient {
+      background-size: 300%;
+      animation: gradientMove 6s ease infinite;
+    }
+    
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Curseur clignotant */
+    .blinking-cursor {
+      display: inline-block;
+      margin-left: 5px;
+      animation: blink 1s infinite;
+    }
+    
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    /* Animation du carrousel */
+    .animate-scroll {
+      display: flex;
+      width: max-content;
+      animation: scroll 40s linear infinite;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* Effet hover pour voir la description */
+    .team-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-card .desc {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      font-size: 12px;
+      padding: 8px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .team-card:hover .desc {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
