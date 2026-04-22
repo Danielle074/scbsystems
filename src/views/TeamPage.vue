@@ -133,6 +133,22 @@
 <script setup>
 import { reactive, ref, nextTick } from "vue";
 
+// ========== IMPORT DES IMAGES DEPUIS LE DOSSIER ASSETS ==========
+// Équipe Côte d'Ivoire
+import cedrickImage from "../assets/images/cedrick.jpeg";
+import thibautImage from "../assets/images/Thibaut.jpg";
+import danielleImage from "../assets/images/Danielle.jpg";
+import elsaImage from "../assets/images/Elsa .jpg";
+import adamImage from "../assets/images/Adam.jpg";
+
+// Équipe USA
+import abdulImage from "../assets/images/Abdul.png";
+import awaImage from "../assets/images/t3.jpg";
+
+// Équipe France
+import franckImage from "../assets/images/t1.jpg";
+import fantaImage from "../assets/images/t2.jpg";
+
 const selectedRegion = ref(null);
 const teamSection = ref(null);
 
@@ -163,14 +179,14 @@ const handleImageError = (event, member) => {
   event.target.style.display = 'none';
 };
 
-// Ajout de l'état de chargement pour chaque membre
+// Teams avec les images importées
 const teams = reactive({
   "Côte d'Ivoire": [
     { 
       name: "Youan Cedric", 
       role: "Développeur Backend", 
       desc: "Expert Python, passionné par l'innovation technologique.", 
-      img: "/images/cedrick.jpeg", 
+      img: cedrickImage, 
       mail: "hervecedricyouan@gmail.com", 
       phone: "+225 07 77 53 79 54", 
       link: "https://linkedin.com/in/youancedric",
@@ -180,7 +196,7 @@ const teams = reactive({
       name: "Kouamé Thibaut", 
       role: "Développeur Mobile", 
       desc: "Expert en applications mobiles cross-platform.", 
-      img: "/images/Thibaut.jpg", 
+      img: thibautImage, 
       mail: "tkouame@scbsystems.org", 
       phone: "+225 07 05 80 98 81", 
       link: "https://www.linkedin.com/in/kouame-thibaut-34b8b4232/",
@@ -190,7 +206,7 @@ const teams = reactive({
       name: "Danielle Achi", 
       role: "Développeuse Front-End", 
       desc: "Spécialiste des interfaces utilisateur modernes.", 
-      img: "/images/Danielle.jpg", 
+      img: danielleImage, 
       mail: "dachi@scbsystems.org", 
       phone: "+225 07 69 09 95 57", 
       link: "https://www.linkedin.com/in/danielle-achi-869229311/",
@@ -200,7 +216,7 @@ const teams = reactive({
       name: "Elsa Zougouri", 
       role: "Développeuse Full-Stack", 
       desc: "Expertise complète backend et frontend.", 
-      img: "/images/Elsa .jpg", 
+      img: elsaImage, 
       mail: "eabelame@scbsystems.org", 
       phone: "+225 07 01 73 96 47", 
       link: "https://www.linkedin.com/in/elsa-zougouri-301743167/",
@@ -210,7 +226,7 @@ const teams = reactive({
       name: "Bayala Adam", 
       role: "Graphiste", 
       desc: "Créateur d'identités visuelles uniques.", 
-      img: "/images/Adam.jpg", 
+      img: adamImage, 
       mail: "kbayala@scbsystems.org", 
       phone: "+225 07 77 87 09 02", 
       link: "https://www.linkedin.com/in/bayala-kalice-adam-a35328223/",
@@ -222,7 +238,7 @@ const teams = reactive({
       name: "Abdul Sako", 
       role: "CEO SCB SYSTEMS USA", 
       desc: "Leader visionnaire et stratège international.", 
-      img: "/images/Abdul.png", 
+      img: abdulImage, 
       mail: "abdul@scbsystems.com", 
       phone: "+1-202-555-0101", 
       link: "https://linkedin.com/in/abdul-sako",
@@ -232,7 +248,7 @@ const teams = reactive({
       name: "Awa Sylla", 
       role: "Directrice Juridique", 
       desc: "Spécialiste en droit international des affaires.", 
-      img: "/images/t3.jpg", 
+      img: awaImage, 
       mail: "awa@scbsystems.com", 
       phone: "+1-202-555-0102", 
       link: "https://linkedin.com/in/awa-sylla",
@@ -244,7 +260,7 @@ const teams = reactive({
       name: "Franck Harding", 
       role: "Directeur Général", 
       desc: "Visionnaire et stratège européen.", 
-      img: "/images/t1.jpg", 
+      img: franckImage, 
       mail: "franck@scbsystems.com", 
       phone: "+33 1 45 00 00 01", 
       link: "https://linkedin.com/in/franck-harding",
@@ -254,7 +270,7 @@ const teams = reactive({
       name: "Fanta Kamissoko", 
       role: "Chef d'Exploitation", 
       desc: "Expert en optimisation des systèmes.", 
-      img: "/images/t2.jpg", 
+      img: fantaImage, 
       mail: "fanta@scbsystems.com", 
       phone: "+33 1 45 00 00 02", 
       link: "https://linkedin.com/in/fanta-kamissoko",

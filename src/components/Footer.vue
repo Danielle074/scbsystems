@@ -39,7 +39,7 @@
     <div class="relative z-10 max-w-7xl mx-auto px-6">
       <!-- Logo et description -->
       <div class="flex flex-col items-center text-center mb-12">
-        <img src="/images/loogoblanc.png" alt="SCB Logo" class="h-20 mb-4" />
+        <img :src="logoBlancImage" alt="SCB Logo" class="h-20 mb-4" />
         <p class="text-blue-200 max-w-2xl text-sm leading-relaxed">
           SCB SYSTEMS, leader africain de l'ingénierie, de la technologie et de la gestion des connaissances.
           Nous accompagnons les entreprises dans leur transformation digitale et leur croissance.
@@ -186,6 +186,8 @@
 </template>
 
 <script setup>
+// ========== IMPORT DES IMAGES DEPUIS LE DOSSIER ASSETS ==========
+import logoBlancImage from "../assets/images/logo-blanc.png"
 </script>
 
 <style scoped>

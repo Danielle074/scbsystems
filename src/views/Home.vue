@@ -68,7 +68,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 md:gap-24">
           <div class="bg-white rounded-lg p-4 text-center shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
             <div class="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style="background: linear-gradient(to bottom right, #e8eaff, #d0d4f5);">
-              <img src="/images/tts.png" alt="Personnel technique" class="w-7 h-7 object-contain" />
+              <img :src="ttsImage" alt="Personnel technique" class="w-7 h-7 object-contain" />
             </div>
             <h3 class="text-base font-bold mb-1" style="color: #101E89;">Le personnel technique</h3>
             <p class="text-gray-600 text-xs leading-relaxed">
@@ -79,7 +79,7 @@
 
           <div class="bg-white rounded-lg p-4 text-center shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
             <div class="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style="background: linear-gradient(to bottom right, #e8eaff, #d0d4f5);">
-              <img src="/images/oe.png" alt="Expertise" class="w-7 h-7 object-contain" />
+              <img :src="oeImage" alt="Expertise" class="w-7 h-7 object-contain" />
             </div>
             <h3 class="text-base font-bold mb-1" style="color: #101E89;">Notre expertise</h3>
             <p class="text-gray-600 text-xs leading-relaxed">
@@ -123,7 +123,7 @@
           </div>
 
           <div class="rounded-xl overflow-hidden shadow-xl mt-6 lg:mt-0">
-            <img src="/images/ai.jpg" alt="SCB Systems" class="w-full h-auto object-cover" />
+            <img :src="aiImage" alt="SCB Systems" class="w-full h-auto object-cover" />
           </div>
         </div>
       </div>
@@ -143,7 +143,7 @@
         <!-- Grille -->
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 sm:gap-8 justify-items-center items-center">
           <div v-for="(client, index) in trustedClients" :key="index" class="text-center">
-            <div class=" rounded-xl p-4  hover:shadow-md transition-all duration-300 flex items-center justify-center h-24 w-32">
+            <div class="rounded-xl p-4 hover:shadow-md transition-all duration-300 flex items-center justify-center h-24 w-32">
               <img :src="client.logo" :alt="client.name" class="max-w-full max-h-16 object-contain" />
             </div>
           </div>
@@ -222,7 +222,7 @@
         <!-- Grille  -->
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 justify-items-center items-center">
           <div v-for="(partner, index) in partners" :key="index" class="text-center">
-            <div class=" rounded-xl p-4 hover:shadow-md transition-all duration-300 flex items-center justify-center h-24 w-32">
+            <div class="rounded-xl p-4 hover:shadow-md transition-all duration-300 flex items-center justify-center h-24 w-32">
               <img :src="partner.logo" :alt="partner.name" class="max-w-full max-h-16 object-contain" />
             </div>
           </div>
@@ -357,52 +357,102 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 
+// ========== IMPORT DES IMAGES DEPUIS LE DOSSIER ASSETS ==========
+// Images du Hero
+import bannerImage from "../assets/images/banner.jpg";
+import header2Image from "../assets/images/header2.jpg";
+import header3Image from "../assets/images/header3.jpg";
+
+// Images des cartes
+import ttsImage from "../assets/images/tts.png";
+import oeImage from "../assets/images/oe.png";
+import aiImage from "../assets/images/ai.jpg";
+
+// Clients qui nous font confiance
+import aigefLogo from "../assets/images/aigef.png";
+import anssiLogo from "../assets/images/anssi.png";
+import ansutLogo from "../assets/images/ansut.png";
+import anterezaLogo from "../assets/images/antereza.png";
+import artciLogo from "../assets/images/artci.png";
+import guineeLogo from "../assets/images/guinee.png";
+import laposteciLogo from "../assets/images/laposteci.png";
+import milleniumLogo from "../assets/images/millenium.png";
+import ministereLogo from "../assets/images/ministere.png";
+import nhLogo from "../assets/images/nh.png";
+import numeriqueLogo from "../assets/images/numerique.png";
+import oneciLogo from "../assets/images/oneci.png";
+
+// Partenaires stratégiques
+import awsLogo from "../assets/images/Aws.png";
+import chuLogo from "../assets/images/chu.png";
+import fedexLogo from "../assets/images/FedEx.png";
+import gwLogo from "../assets/images/gw.png";
+import hclLogo from "../assets/images/hcl.png";
+import nsicorpsLogo from "../assets/images/Nsicorps.png";
+import mobileumLogo from "../assets/images/mobileum.png";
+import seedspotLogo from "../assets/images/SeedSpot.png";
+
+// Certifications
+import cert1 from "../assets/images/certification1.png";
+import cert2 from "../assets/images/Certification2.png";
+import cert3 from "../assets/images/Certification3.png";
+import cert4 from "../assets/images/Certification4.png";
+import cert5 from "../assets/images/Certification5.png";
+import cert6 from "../assets/images/Certification5.png";
+import cert7 from "../assets/images/Certification7.png";
+import cert8 from "../assets/images/Certification8.png";
+import cert9 from "../assets/images/Certification9.png";
+import cert10 from "../assets/images/Certification10.png";
+import cert11 from "../assets/images/Certification11.png";
+
+// ========== CONFIGURATION DES IMAGES DANS LES TABLEAUX ==========
 const heroImages = [
-  { url: "/images/banner.jpg", title: "MAÎTRISE TOTALE DE LA GESTION DES CONNAISSANCES" },
-  { url: "/images/header2.jpg", title: "LEADER AFRICAIN EN INGÉNIERIE ET TECHNOLOGIE INNOVANTE" },
-  { url: "/images/header3.jpg", title: "OPTIMISEZ VOTRE NUMÉRISATION POUR UNE PERFORMANCE MAXIMALE" },
+  { url: bannerImage, title: "MAÎTRISE TOTALE DE LA GESTION DES CONNAISSANCES" },
+  { url: header2Image, title: "LEADER AFRICAIN EN INGÉNIERIE ET TECHNOLOGIE INNOVANTE" },
+  { url: header3Image, title: "OPTIMISEZ VOTRE NUMÉRISATION POUR UNE PERFORMANCE MAXIMALE" },
 ];
 
 // Clients qui nous font confiance
 const trustedClients = [
-  { name: "AIGEF", logo: "/images/aigef.png" },
-  { name: "ANSSI", logo: "/images/anssi.png" },
-  { name: "ANSUT", logo: "/images/ansut.png" },
-  { name: "ANTEREZA", logo: "/images/antereza.png" },
-  { name: "ARTCI", logo: "/images/artci.png" },
-  { name: "Guinée", logo: "/images/guinee.png" },
-  { name: "La Poste CI", logo: "/images/laposteci.png" },
-  { name: "Millenium", logo: "/images/millenium.png" },
-  { name: "Ministère", logo: "/images/ministere.png" },
-  { name: "NH", logo: "/images/nh.png" },
-  { name: "Numérique", logo: "/images/numerique.png" },
-  { name: "ONECI", logo: "/images/oneci.png" },
+  { name: "AIGEF", logo: aigefLogo },
+  { name: "ANSSI", logo: anssiLogo },
+  { name: "ANSUT", logo: ansutLogo },
+  { name: "ANTEREZA", logo: anterezaLogo },
+  { name: "ARTCI", logo: artciLogo },
+  { name: "Guinée", logo: guineeLogo },
+  { name: "La Poste CI", logo: laposteciLogo },
+  { name: "Millenium", logo: milleniumLogo },
+  { name: "Ministère", logo: ministereLogo },
+  { name: "NH", logo: nhLogo },
+  { name: "Numérique", logo: numeriqueLogo },
+  { name: "ONECI", logo: oneciLogo },
 ];
 
 // Partenaires stratégiques
 const partners = [
-  { name: "AWS", logo: "/images/Aws.png", type: "Partenaire Technologique" },
-  { name: "CHU", logo: "/images/chu.png", type: "Partenaire Réseau" },
-  { name: "FedEx", logo: "/images/FedEx.png", type: "Partenaire IA" },
-  { name: "GW", logo: "/images/gw.png", type: "Partenaire Cloud" },
-  { name: "HCL", logo: "/images/hcl.png", type: "Partenaire ERP" },
-  { name: "Nsicorps", logo: "/images/Nsicorps.png", type: "Partenaire Cloud" },
-  { name: "Mobileum", logo: "/images/mobileum.png", type: "Partenaire Cloud" },
-  { name: "SeedSpot", logo: "/images/SeedSpot.png", type: "Partenaire Hardware" },
+  { name: "AWS", logo: awsLogo, type: "Partenaire Technologique" },
+  { name: "CHU", logo: chuLogo, type: "Partenaire Réseau" },
+  { name: "FedEx", logo: fedexLogo, type: "Partenaire IA" },
+  { name: "GW", logo: gwLogo, type: "Partenaire Cloud" },
+  { name: "HCL", logo: hclLogo, type: "Partenaire ERP" },
+  { name: "Nsicorps", logo: nsicorpsLogo, type: "Partenaire Cloud" },
+  { name: "Mobileum", logo: mobileumLogo, type: "Partenaire Cloud" },
+  { name: "SeedSpot", logo: seedspotLogo, type: "Partenaire Hardware" },
 ];
 
+// Certifications
 const certifications = [
-  { image: "/images/certification1.png", title: "Certification 1" },
-  { image: "/images/Certification2.png", title: "Certification 2" },
-  { image: "/images/Certification3.png", title: "Certification 3" },
-  { image: "/images/Certification4.png", title: "Certification 4" },
-  { image: "/images/Certification5.png", title: "Certification 5" },
-  { image: "/images/Certification6.png", title: "Certification 6" },
-  { image: "/images/Certification7.png", title: "Certification 7" },
-  { image: "/images/Certification8.png", title: "Certification 8" },
-  { image: "/images/Certification9.png", title: "Certification 9" },
-  { image: "/images/Certification10.png", title: "Certification 10" },
-  { image: "/images/Certification11.png", title: "Certification 11" },
+  { image: cert1, title: "Certification 1" },
+  { image: cert2, title: "Certification 2" },
+  { image: cert3, title: "Certification 3" },
+  { image: cert4, title: "Certification 4" },
+  { image: cert5, title: "Certification 5" },
+  { image: cert6, title: "Certification 6" },
+  { image: cert7, title: "Certification 7" },
+  { image: cert8, title: "Certification 8" },
+  { image: cert9, title: "Certification 9" },
+  { image: cert10, title: "Certification 10" },
+  { image: cert11, title: "Certification 11" },
 ];
 
 const currentImageIndex = ref(0);

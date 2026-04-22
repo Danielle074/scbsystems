@@ -2,7 +2,7 @@
   <div class="contact-page">
     <!-- Header avec image amélioré -->
     <header class="header-container">
-      <img src="/images/contact1.jpg" alt="Contact background" class="header-image" />
+      <img :src="contactHeaderImage" alt="Contact background" class="header-image" />
       <div class="header-overlay"></div>
 
       <!-- Contenu du header -->
@@ -20,8 +20,6 @@
           Notre équipe est à votre écoute pour vous accompagner.
         </p>
       </div>
-
-      
     </header>
 
     <!-- Section liens de contact principale -->
@@ -221,6 +219,10 @@
 <script>
 import { ref, onMounted, onUnmounted } from 'vue'
 
+// ========== IMPORT DES IMAGES DEPUIS LE DOSSIER ASSETS ==========
+// Header image
+import contactHeaderImage from "../assets/images/contact1.jpg"
+
 export default {
   name: 'ContactPage',
   setup() {
@@ -240,6 +242,7 @@ export default {
     })
 
     return {
+      contactHeaderImage,
       meetingLink,
       dashboardLink,
       websiteLink,
@@ -285,8 +288,6 @@ export default {
   padding: 0 2rem;
   z-index: 20;
 }
-
-
 
 .animate-bounce {
   animation: bounce 2s infinite;

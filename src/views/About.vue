@@ -3,7 +3,7 @@
     <!-- Header avec image amélioré -->
     <header class="header-container fade-in-card">
       <img
-        src="/images/equipe.jpg"
+        :src="equipeImage"
         alt="About background"
         class="header-image"
       />
@@ -24,8 +24,6 @@
           leader africain de l'ingénierie et de la technologie.
         </p>
       </div>
-
-     
     </header>
 
     <!-- Section principale -->
@@ -75,7 +73,7 @@
               <div class="absolute -top-4 -left-4 w-32 h-32 rounded-lg opacity-20" style="background-color: #101E89;"></div>
               <div class="absolute -bottom-4 -right-4 w-32 h-32 rounded-lg opacity-20" style="background-color: #101E89;"></div>
               <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img src="/images/ai.jpg" alt="SCB Systems" class="w-full h-auto object-cover transform hover:scale-105 transition duration-700" />
+                <img :src="aiImage" alt="SCB Systems" class="w-full h-auto object-cover transform hover:scale-105 transition duration-700" />
               </div>
             </div>
           </div>
@@ -91,7 +89,7 @@
               <div class="relative h-2" style="background-color: #101E89;"></div>
               <div class="p-8 text-center">
                 <div class="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110" style="background: linear-gradient(135deg, #101E89, #2a3eb8);">
-                  <img src="/images/tts.png" alt="Personnel technique" class="w-10 h-10 object-contain brightness-0 invert" />
+                  <img :src="ttsImage" alt="Personnel technique" class="w-10 h-10 object-contain brightness-0 invert" />
                 </div>
                 <h3 class="text-2xl font-bold mb-4" style="color: #101E89;">Le personnel technique</h3>
                 <p class="text-gray-600 leading-relaxed">
@@ -108,7 +106,7 @@
               <div class="relative h-2" style="background-color: #101E89;"></div>
               <div class="p-8 text-center">
                 <div class="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110" style="background: linear-gradient(135deg, #101E89, #2a3eb8);">
-                  <img src="/images/oe.png" alt="Expertise" class="w-10 h-10 object-contain brightness-0 invert" />
+                  <img :src="oeImage" alt="Expertise" class="w-10 h-10 object-contain brightness-0 invert" />
                 </div>
                 <h3 class="text-2xl font-bold mb-4" style="color: #101E89;">Notre expertise</h3>
                 <p class="text-gray-600 leading-relaxed">
@@ -298,6 +296,12 @@
 <script>
 import Team from "../components/Team.vue";
 
+// Import des images depuis le dossier assets
+import equipeImage from "../assets/images/equipe.jpg";
+import aiImage from "../assets/images/ai.jpg";
+import ttsImage from "../assets/images/tts.png";
+import oeImage from "../assets/images/oe.png";
+
 export default {
   name: "About",
   components: {
@@ -306,6 +310,11 @@ export default {
   data() {
     return {
       showScrollTop: false,
+      // Images importées
+      equipeImage,
+      aiImage,
+      ttsImage,
+      oeImage,
     };
   },
   mounted() {

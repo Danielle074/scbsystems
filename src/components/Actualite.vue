@@ -2,7 +2,7 @@
   <div class="actualites-page min-h-screen relative">
     <!-- Header amélioré -->
     <header class="relative h-[85vh] flex flex-col items-center justify-center text-center text-white overflow-hidden">
-      <div class="absolute inset-0 bg-cover bg-center scale-110" style="background-image: url('/images/Actualites.jpg');"></div>
+      <div class="absolute inset-0 bg-cover bg-center scale-110" :style="{ backgroundImage: `url(${actualitesHeaderImage})` }"></div>
       <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(16,30,137,0.85) 0%, rgba(0,0,0,0.6) 100%);"></div>
       
       <div class="relative z-10 px-6 max-w-4xl mx-auto mt-40">
@@ -18,8 +18,6 @@
           projets et événements pour rester connectés avec nos clients et partenaires à travers le monde.
         </p>
       </div>
-
-     
     </header>
 
     <!-- Grille des actualités -->
@@ -216,6 +214,15 @@
 <script>
 import { ref, onMounted, onUnmounted } from 'vue'
 
+// ========== IMPORT DES IMAGES DEPUIS LE DOSSIER ASSETS ==========
+// Header image
+import actualitesHeaderImage from "../assets/images/Actualites.jpg"
+
+// Images des articles
+import scbDroneImage from "../assets/images/scb dr 2.png"
+import affairesImage from "../assets/images/Affaires.jpg"
+import eventsImage from "../assets/images/Events.jpg"
+
 export default {
   name: "Actualites",
   setup() {
@@ -226,7 +233,7 @@ export default {
         category: "Innovation",
         date: "20 septembre 2025",
         description: "Découvrez nos drones performants pour l'agriculture, la construction et la surveillance.",
-        image: "/images/scb dr 2.png",
+        image: scbDroneImage,
         fullContent: `SCB Systems est fier d'annoncer le lancement de SCB Drone, une plateforme révolutionnaire dédiée aux solutions drones innovantes. Cette technologie de pointe transformera les secteurs de l'agriculture, de la construction et de la surveillance.
 
 Nos drones équipés de capteurs avancés permettent :
@@ -247,7 +254,7 @@ Cette innovation s'inscrit dans notre vision d'apporter des solutions technologi
         category: "Partenariat",
         date: "10 septembre 2025",
         description: "Renforcement de nos capacités en IA et machine learning.",
-        image: "/images/Affaires.jpg",
+        image: affairesImage,
         fullContent: `SCB Systems a le plaisir d'annoncer un partenariat stratégique majeur avec une organisation internationale leader dans le domaine de l'intelligence artificielle.
 
 Les bénéfices de ce partenariat incluent :
@@ -268,7 +275,7 @@ Ce partenariat positionne SCB Systems comme un acteur majeur dans le domaine de 
         category: "Événement",
         date: "5 août 2025",
         description: "Plus de 500 professionnels réunis pour célébrer l'innovation technologique.",
-        image: "/images/Events.jpg",
+        image: eventsImage,
         fullContent: `Le SCB Tech Summit 2025 a connu un succès retentissant avec la participation de plus de 500 professionnels du secteur technologique.
 
 Points marquants de l'événement :
@@ -323,6 +330,7 @@ Cet événement renforce notre engagement à promouvoir l'innovation technologiq
     });
 
     return { 
+      actualitesHeaderImage,
       newsList, 
       videos, 
       selectedArticle,
@@ -357,8 +365,6 @@ Cet événement renforce notre engagement à promouvoir l'innovation technologiq
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
-
 
 .animate-bounce {
   animation: bounce 2s infinite;

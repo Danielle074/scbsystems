@@ -43,10 +43,10 @@
       ]"
     >
       <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <!-- LOGO -->
+        <!-- LOGO avec image importée -->
         <RouterLink to="/" class="flex items-center transition-transform hover:scale-105 flex-shrink-0">
           <img
-            :src="afterHero ? '/images/logo.png' : '/images/loogoblanc.png'"
+            :src="afterHero ? logoImage : logoBlancImage"
             class="h-10 sm:h-14 md:h-20 w-auto object-contain transition-all duration-500"
             alt="SCB Logo"
           />
@@ -87,7 +87,6 @@
                 to="/projet" 
                 class="nav-link flex items-center gap-2"
               >
-                <!-- Icône changée -->
                 <i class='bx bx-briefcase-alt-2 text-xl'></i>
                 <span>Projets</span>
               </RouterLink>
@@ -171,11 +170,11 @@
           </RouterLink>
           <div class="border-t pt-3 mt-2">
             <RouterLink to="/actualite" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition text-gray-600" @click="mobileMenuOpen = false">
-              <span>📰</span>
+              <i class='bx bx-news text-xl'></i>
               <span>Actualités</span>
             </RouterLink>
             <RouterLink to="/nous-rejoindre" class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition text-gray-600" @click="mobileMenuOpen = false">
-              <span>💼</span>
+              <i class='bx bx-briefcase text-xl'></i>
               <span>Nous rejoindre</span>
             </RouterLink>
           </div>
@@ -195,6 +194,11 @@
 <script>
 import { ref, onMounted, onUnmounted } from "vue";
 import Footer from "./Footer.vue";
+
+// ========== IMPORT DES IMAGES DEPUIS LE DOSSIER ASSETS ==========
+
+import logoImage from "../assets/images/logo-scb.png";
+import logoBlancImage from "../assets/images/logo-blanc.png";
 
 export default {
   name: "Layout",
@@ -242,6 +246,8 @@ export default {
       setLang,
       mobileMenuOpen,
       afterHero,
+      logoImage,
+      logoBlancImage,
     };
   },
 };

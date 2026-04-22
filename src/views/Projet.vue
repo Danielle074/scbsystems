@@ -18,8 +18,6 @@
           Découvrez nos projets phares qui ont transformé le paysage numérique en Afrique
         </p>
       </div>
-
-      
     </header>
 
     <!-- Section Projets phares -->
@@ -45,7 +43,6 @@
             <div :class="['grid md:grid-cols-2 gap-0', index % 2 === 1 ? 'md:flex-row-reverse' : '']">
               <div class="relative h-64 md:h-auto overflow-hidden">
                 <img :src="project.image" :alt="project.title" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
-                <!-- Overlay SUPPRIMÉ -->
               </div>
               <div class="p-8 md:p-10">
                 <div class="flex items-center gap-4 mb-4">
@@ -160,15 +157,26 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
-// Header image - NOUVEAU NOM
-const projectsHeaderImage = ref('/images/headerprojet.jpg')
+// ========== IMPORT DES IMAGES DEPUIS LE DOSSIER ASSETS ==========
+// Header image
+import headerProjetImage from "../assets/images/header.jpg"
 
-// Projets data
+// Logos et images des projets
+import express54Logo from "../assets/images/express54.png"
+import maPosteLogo from "../assets/images/MaPostelogo.png"
+import polibyLogo from "../assets/images/Polibylaposte.png"
+import laPosteCILogo from "../assets/images/laposteci.png"
+import goPosteLogo from "../assets/images/gopost.png"
+
+// Header image
+const projectsHeaderImage = headerProjetImage
+
+// Projets data avec les images importées
 const projects = ref([
   {
     title: "Express 54",
-    logo: "/images/express54.png",
-    image: "/images/express54.png",
+    logo: express54Logo,
+    image: express54Logo,
     badge: "Projet majeur",
     description: "Plateforme de livraison express et de logistique innovante. Nous avons développé une solution complète de gestion des colis, de suivi en temps réel et d'optimisation des tournées pour les livreurs.",
     features: [
@@ -180,8 +188,8 @@ const projects = ref([
   },
   {
     title: "Maposte",
-    logo: "/images/MaPostelogo.png",
-    image: "/images/MaPostelogo.png",
+    logo: maPosteLogo,
+    image: maPosteLogo,
     badge: "Solution digitale",
     description: "Solution de géolocalisation et de cartographie interactive pour les services postaux. Maposte permet de visualiser en temps réel l'ensemble des bureaux de poste et points de service.",
     features: [
@@ -193,8 +201,8 @@ const projects = ref([
   },
   {
     title: "Poliby",
-    logo: "/images/Polibylaposte.png",
-    image: "/images/Polibylaposte.png",
+    logo: polibyLogo,
+    image: polibyLogo,
     badge: "Plateforme web",
     description: "Plateforme de gestion administrative et de services publics en ligne. Poliby simplifie les démarches administratives pour les citoyens et les entreprises.",
     features: [
@@ -206,8 +214,8 @@ const projects = ref([
   },
   {
     title: "La Poste CI",
-    logo: "/images/laposteci.png",
-    image: "/images/laposteci.png",
+    logo: laPosteCILogo,
+    image: laPosteCILogo,
     badge: "Transformation digitale",
     description: "Accompagnement de La Poste de Côte d'Ivoire dans sa transformation digitale. Modernisation des services postaux et développement de solutions innovantes.",
     features: [
@@ -219,8 +227,8 @@ const projects = ref([
   },
   {
     title: "Go Poste",
-    logo: "/images/gopost.png",
-    image: "/images/gopost.png",
+    logo: goPosteLogo,
+    image: goPosteLogo,
     badge: "Application mobile",
     description: "Application mobile révolutionnaire pour les services postaux. Go Poste permet aux utilisateurs d'effectuer leurs opérations postales directement depuis leur smartphone.",
     features: [

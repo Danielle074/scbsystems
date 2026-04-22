@@ -21,8 +21,6 @@
           Des solutions innovantes et adaptées pour propulser vos projets vers l'avenir.
         </p>
       </div>
-
-     
     </header>
 
     <!-- Section Knowledge Management 360 - Version améliorée -->
@@ -226,11 +224,31 @@
 <script>
 import { ref, onMounted, onUnmounted } from "vue";
 
+// ========== IMPORT DES IMAGES DEPUIS LE DOSSIER ASSETS ==========
+// Header images
+import iaImage from "../assets/images/IA.jpg";
+import scienceImage from "../assets/images/Science.jpg";
+import aiImage from "../assets/images/ai.jpg";
+
+// Images des services (domaines d'expertise)
+import img1 from "../assets/images/img1.png";
+import img2 from "../assets/images/img2.png";
+import img3 from "../assets/images/img3.png";
+import header2Image from "../assets/images/header2.jpg";
+import servicesImage from "../assets/images/Services.jpg";
+import cybersecurityImage from "../assets/images/cybersecurity.jpg";
+
+// Images Knowledge Management
+import donneeImage from "../assets/images/donnee.jpg";
+import informationImage from "../assets/images/information.jpg";
+import connaissancesImage from "../assets/images/connaissances.jpg";
+import sagesseImage from "../assets/images/sagesse.jpg";
+
 export default {
   name: "Services",
   setup() {
-    // Header images
-    const headerImages = ["/images/IA.jpg", "/images/Science.jpg", "/images/ai.jpg"];
+    // Header images avec les imports
+    const headerImages = [iaImage, scienceImage, aiImage];
     const currentIndex = ref(0);
     let headerInterval;
 
@@ -244,10 +262,10 @@ export default {
       if (headerInterval) clearInterval(headerInterval);
     });
 
-    // Services
+    // Services avec les images importées
     const services = ref([
       {
-        img: "/images/img1.png",
+        img: img1,
         title: "Sciences de la vie",
         description: "Expertise en audit, réglementation et conformité qualité",
         details: [
@@ -259,7 +277,7 @@ export default {
         ],
       },
       {
-        img: "/images/img2.png",
+        img: img2,
         title: "Gouvernance numérique",
         description: "Sécurisez et optimisez votre infrastructure IT",
         details: [
@@ -271,7 +289,7 @@ export default {
         ],
       },
       {
-        img: "/images/img3.png",
+        img: img3,
         title: "Sciences de l'ingénieur",
         description: "Ingénierie système et validation de processus",
         details: [
@@ -283,7 +301,7 @@ export default {
         ],
       },
       {
-        img: "/images/header2.jpg",
+        img: header2Image,
         title: "Technologie",
         description: "Solutions digitales innovantes pour votre entreprise",
         details: [
@@ -295,7 +313,7 @@ export default {
         ],
       },
       {
-        img: "/images/Services.jpg",
+        img: servicesImage,
         title: "Gestion des connaissances",
         description: "Capitalisez et valorisez votre savoir-faire",
         details: [
@@ -307,7 +325,7 @@ export default {
         ],
       },
       {
-        img: "/images/cybersecurity.jpg",
+        img: cybersecurityImage,
         title: "Gestion des risques",
         description: "Anticipez et maîtrisez les risques",
         details: [
@@ -328,12 +346,12 @@ export default {
       { value: "3", label: "Continents" },
     ]);
 
-    // Knowledge Management Cards
+    // Knowledge Management Cards avec les images importées
     const selectedKnowledge = ref(null);
     const knowledgeCards = ref([
       {
         title: "Données",
-        img: "/images/donnee.jpg",
+        img: donneeImage,
         description: "Collecte et structuration des données",
         fullDescription: "Notre approche Data vous permet de collecter, structurer et sécuriser vos données pour en faire un actif stratégique.",
         details: [
@@ -345,7 +363,7 @@ export default {
       },
       {
         title: "Information",
-        img: "/images/information.jpg",
+        img: informationImage,
         description: "Traitement et analyse",
         fullDescription: "Transformez vos données brutes en informations exploitables grâce à nos solutions d'analyse avancées.",
         details: [
@@ -357,7 +375,7 @@ export default {
       },
       {
         title: "Connaissance",
-        img: "/images/connaissances.jpg",
+        img: connaissancesImage,
         description: "Capitalisation et partage",
         fullDescription: "Capitalisez sur votre savoir-faire et créez une mémoire d'entreprise durable.",
         details: [
@@ -369,7 +387,7 @@ export default {
       },
       {
         title: "Sagesse",
-        img: "/images/sagesse.jpg",
+        img: sagesseImage,
         description: "Décision et innovation",
         fullDescription: "Utilisez la connaissance pour prendre les meilleures décisions et innover.",
         details: [
