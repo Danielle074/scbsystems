@@ -1,491 +1,355 @@
 <template>
-  <div>
-    <!-- Hero Section  -->
-    <section id="hero" class="relative h-screen overflow-hidden fade-in-card">
-      <!-- Images avec overlay -->
-      <div class="absolute inset-0 z-0">
+  <div class="home-page">
+    <!-- Hero Section -->
+    <section class="relative h-screen w-full overflow-hidden">
+      <div class="absolute inset-0 z-0 w-full h-full">
         <div
           v-for="(image, index) in heroImages"
           :key="index"
-          class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
-          :class="{
-            'opacity-100': currentImageIndex === index,
-            'opacity-0': currentImageIndex !== index,
-          }"
+          class="absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000"
+          :class="{ 'opacity-100': currentImageIndex === index, 'opacity-0': currentImageIndex !== index }"
           :style="{ backgroundImage: `url('${image.url}')` }"
         >
-          <div
-            class="absolute inset-0 bg-gradient-to-b from-black/45 to-black/45"
-          ></div>
+          <div class="absolute inset-0 bg-black/50 w-full h-full"></div>
         </div>
       </div>
 
-      <!-- Texte et bouton -->
-      <div
-        class="absolute inset-0 z-10 flex flex-col justify-center items-center text-center px-6"
-      >
-        <h1
-          class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white/80 to-blue-400 drop-shadow-[0_5px_20px_rgba(0,0,0,0.7)$] leading-tight pt-20 text-center fade-in-card"
-        >
+      <div class="relative z-10 h-full w-full flex flex-col justify-center items-center text-center px-4 sm:px-6">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white drop-shadow-lg leading-tight max-w-4xl mt-10 sm:mt-14">
           {{ heroImages[currentImageIndex].title }}
         </h1>
-
-        <router-link
-          to="/services"
-          class="mt-6 px-6 py-3 rounded-full bg-blue-800 text-white font-semibold shadow-lg hover:bg-blue-800 transition transform hover:scale-105 fade-in-card"
-        >
+        <router-link to="/services" class="mt-6 sm:mt-8 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-white font-semibold transition transform hover:scale-105 shadow-lg text-sm sm:text-base" style="background-color: #101E89;">
           Découvrir nos services
         </router-link>
       </div>
 
-      <!-- Bullets de navigation -->
-      <div
-        class="absolute bottom-8 z-20 w-full flex justify-center items-center space-x-4 fade-in-card"
-      >
-        <span
+      <div class="absolute bottom-6 sm:bottom-8 z-20 w-full flex justify-center gap-2 sm:gap-3">
+        <button
           v-for="(image, index) in heroImages"
           :key="index"
           @click="currentImageIndex = index"
-          :class="[
-            'w-4 h-4 rounded-full border-2 border-blue-800 cursor-pointer transition-all duration-300',
-            currentImageIndex === index ? 'bg-blue-800' : 'bg-transparent',
-          ]"
-        ></span>
+          class="w-2 h-2 sm:w-3 sm:h-3 rounded-full border-2 border-white transition-all duration-300"
+          :class="{ 'bg-white': currentImageIndex === index, 'bg-transparent': currentImageIndex !== index }"
+        ></button>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section
-      class="relative py-20 px-6 md:px-10 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-200 fade-in-card"
-    >
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <h2
-          class="text-4xl md:text-5xl font-bold text-blue-900 mb-6 drop-shadow-lg fade-in-card"
-        >
-          À propos de SCB SYSTEMS
-        </h2>
-        <p class="text-lg md:text-xl text-gray-700 mb-4 fade-in-card">
-          SCB Systems accompagne tous les secteurs d'activité, du primaire au
-          secondaire, en passant par le tertiaire et le quaternaire.<br />
-          Nos solutions aident les entreprises à prendre des décisions durables
-          pour assurer leur croissance dans cette ère technologique.<br />
-          Notre expertise diversifiée nous permet d'être les meilleurs garants
-          de votre réussite.
-        </p>
-      </div>
-
-      <!-- Cartes en grille -->
-      <div
-        class="flex flex-col md:flex-row justify-center items-stretch gap-8 mt-2"
-      >
-        <div
-          class="bg-white rounded-xl shadow-lg p-6 w-full md:w-1/3 hover:scale-105 transition duration-300 flex flex-col items-center fade-in-card"
-        >
-          <img src="/images/tts.png" alt="" class="h-20 mb-4" />
-          <h3 class="text-xl font-semibold text-blue-800 mb-2">
-            Le personnel technique
-          </h3>
-          <p class="text-gray-600 text-center">
-            Que vous soyez en démarrage ou en restructuration, nous sommes là
-            pour vous. Notre devise : analyser, identifier, conseiller,
-            exécuter. Notre mission est de créer des relations, et non des
-            transactions. Nous vous promettons d'être présents à chaque étape de
-            votre projet, en cas de questions ou de problèmes.
-          </p>
+    <!-- Section Chiffres clés -->
+    <section class="py-10 sm:py-16 text-white" style="background-color: #101E89;">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-6 sm:mb-10">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4">SCB Systems en chiffres</h2>
+          <p class="text-blue-200 text-base sm:text-lg">Des résultats qui parlent d'eux-mêmes</p>
         </div>
-        <div
-          class="bg-white rounded-xl shadow-lg p-6 w-full md:w-1/3 hover:scale-105 transition duration-300 flex flex-col items-center fade-in-card"
-        >
-          <img src="/images/oe.png" alt="" class="h-20 mb-4" />
-          <h3 class="text-xl font-semibold text-blue-800 mb-2">
-            Notre expertise
-          </h3>
-          <p class="text-gray-600 text-center">
-            Nous sommes un groupe de ressources en gestion d'ingénierie et en
-            science des données, d'analystes, de défenseurs et de stratèges qui
-            s'efforcent de partager notre expérience et nos connaissances pour
-            vous aider à réussir votre entreprise.
-          </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+          <div class="text-center">
+            <div class="text-3xl sm:text-4xl md:text-5xl font-bold mb-1 sm:mb-2">15+</div>
+            <p class="text-blue-200 text-xs sm:text-sm">Années d'expertise</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl sm:text-4xl md:text-5xl font-bold mb-1 sm:mb-2">200+</div>
+            <p class="text-blue-200 text-xs sm:text-sm">Projets réalisés</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl sm:text-4xl md:text-5xl font-bold mb-1 sm:mb-2">98%</div>
+            <p class="text-blue-200 text-xs sm:text-sm">Clients satisfaits</p>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl sm:text-4xl md:text-5xl font-bold mb-1 sm:mb-2">3</div>
+            <p class="text-blue-200 text-xs sm:text-sm">Continents</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Nos Projets  -->
-    <section class="py-20 px-6 md:px-10 bg-gray-50 fade-in-card">
-      <h2
-        class="text-4xl md:text-5xl font-bold text-blue-900 text-center mb-12 fade-in-card"
-      >
-        Nos Projets
-      </h2>
+    <!-- Cartes MINCES collées au header -->
+    <section class="relative z-20 -mt-8 sm:-mt-12 pb-8 sm:pb-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 md:gap-24">
+          <div class="bg-white rounded-lg p-4 text-center shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style="background: linear-gradient(to bottom right, #e8eaff, #d0d4f5);">
+              <img src="/images/tts.png" alt="Personnel technique" class="w-7 h-7 object-contain" />
+            </div>
+            <h3 class="text-base font-bold mb-1" style="color: #101E89;">Le personnel technique</h3>
+            <p class="text-gray-600 text-xs leading-relaxed">
+              Que vous soyez en démarrage ou en restructuration, nous sommes là pour vous. 
+              Notre devise : analyser, identifier, conseiller, exécuter.
+            </p>
+          </div>
 
-      <div class="relative">
-        <div
-          class="flex overflow-x-auto gap-6 py-4 scrollbar-hide"
-          ref="projectsContainer"
-          @scroll="handleProjectsScroll"
-        >
-          <div
-            v-for="(project, index) in projects"
-            :key="index"
-            class="min-w-[260px] max-w-[260px] flex-shrink-0"
-          >
-            <div
-              class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 ease-out h-[350px] flex flex-col hover:shadow-lg"
-            >
-              <!-- Image du projet -->
-              <div
-                class="relative h-40 flex items-center justify-center bg-gray-50 p-3"
-              >
-                <img
-                  :src="project.image"
-                  :alt="project.title"
-                  class="max-w-full max-h-24 object-contain"
-                />
-              </div>
+          <div class="bg-white rounded-lg p-4 text-center shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style="background: linear-gradient(to bottom right, #e8eaff, #d0d4f5);">
+              <img src="/images/oe.png" alt="Expertise" class="w-7 h-7 object-contain" />
+            </div>
+            <h3 class="text-base font-bold mb-1" style="color: #101E89;">Notre expertise</h3>
+            <p class="text-gray-600 text-xs leading-relaxed">
+              Nous sommes un groupe de ressources en gestion d'ingénierie et en science des données, 
+              d'analystes, de défenseurs et de stratèges.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-              <!-- Contenu du projet -->
-              <div class="p-4 flex-1 flex flex-col">
-                <h3
-                  class="text-base font-bold text-blue-900 mb-2 leading-tight"
-                >
-                  {{ project.title }}
-                </h3>
-                <p class="text-gray-600 text-xs flex-1 leading-relaxed mb-2">
-                  {{ project.description }}
-                </p>
+    <!-- Section Qui nous sommes -->
+    <section class="py-10 sm:py-16 bg-gradient-to-br from-gray-50 to-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 items-center">
+          <div class="text-left">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-5 relative inline-block after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-12 sm:after:w-16 after:h-1 after:rounded-full" style="color: #101E89;">
+              Qui nous sommes
+            </h2>
+            <div class="space-y-2 sm:space-y-3 mt-4 sm:mt-6">
+              <p class="text-gray-700 text-xs sm:text-sm leading-relaxed">
+                SCB Systems est une entreprise leader dans le domaine de l'ingénierie 
+                et de la technologie innovante en Afrique et dans le monde.
+              </p>
+              <p class="text-gray-700 text-xs sm:text-sm leading-relaxed">
+                Fondée avec la vision de transformer le paysage technologique, 
+                SCB Systems accompagne tous les secteurs d'activité.
+              </p>
+              <p class="text-gray-700 text-xs sm:text-sm leading-relaxed">
+                Nos solutions aident les entreprises à prendre des décisions durables 
+                pour assurer leur croissance dans cette ère technologique.
+              </p>
+              <p class="text-gray-700 text-xs sm:text-sm leading-relaxed">
+                Avec une présence en Afrique, aux États-Unis et en France, SCB Systems 
+                réunit une équipe de talents passionnés.
+              </p>
+            </div>
+            <router-link to="/a-propos" class="inline-block mt-5 sm:mt-6 px-5 sm:px-6 py-1.5 sm:py-2 text-white font-semibold rounded-full transition text-xs sm:text-sm" style="background-color: #101E89;">
+              En savoir plus
+            </router-link>
+          </div>
 
-                <!-- Indicateur de statut -->
-                <div class="flex items-center justify-between mt-auto">
-                  <span
-                    class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium"
-                    :class="
-                      project.status === 'Complété'
-                        ? 'bg-green-100 text-green-800'
-                        : 'bg-blue-100 text-blue-800'
-                    "
-                  >
-                    {{ project.status }}
-                  </span>
-                  <span class="text-xs text-gray-500">
-                    {{ project.year }}
-                  </span>
-                </div>
-              </div>
+          <div class="rounded-xl overflow-hidden shadow-xl mt-6 lg:mt-0">
+            <img src="/images/ai.jpg" alt="SCB Systems" class="w-full h-auto object-cover" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Ils nous font confiance -->
+    <section class="py-12 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10 sm:mb-14">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style="color: #101E89;">Ils nous font confiance</h2>
+          <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto px-4">
+            Plus de 200 entreprises et institutions nous ont choisis pour leur transformation digitale
+          </p>
+          <div class="w-20 h-1 mx-auto mt-4 rounded-full" style="background-color: #101E89;"></div>
+        </div>
+
+        <!-- Grille -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 sm:gap-8 justify-items-center items-center">
+          <div v-for="(client, index) in trustedClients" :key="index" class="text-center">
+            <div class=" rounded-xl p-4  hover:shadow-md transition-all duration-300 flex items-center justify-center h-24 w-32">
+              <img :src="client.logo" :alt="client.name" class="max-w-full max-h-16 object-contain" />
             </div>
           </div>
         </div>
 
-        <!-- Indicateurs de progression -->
-        <div class="flex justify-center items-center gap-2 mt-6">
-          <div
-            v-for="(project, index) in projects"
-            :key="index"
-            @click="scrollToProject(index)"
-            :class="[
-              'w-2 h-2 rounded-full cursor-pointer transition-all duration-300',
-              activeProjectIndex === index
-                ? 'bg-blue-600 w-6'
-                : 'bg-gray-300 hover:bg-gray-400',
-            ]"
-          ></div>
+        <div class="mt-12 text-center">
+          <p class="text-gray-600 text-sm italic">
+            "SCB Systems nous accompagne depuis 5 ans avec un professionnalisme et une expertise remarquables."
+          </p>
+          <p class="text-gray-500 text-xs mt-2">— Directeur IT, Grande Entreprise</p>
         </div>
       </div>
     </section>
 
-    <!-- Innovations Section  -->
-    <section class="py-20 px-6 md:px-10 bg-white fade-in-card">
-      <h2
-        class="text-4xl md:text-5xl font-bold text-blue-900 text-center mb-12 fade-in-card"
-      >
-        Nos Innovations
-      </h2>
+    <!-- Section Pourquoi nous sommes différents -->
+    <section class="py-12 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-8 sm:mb-12">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style="color: #101E89;">Pourquoi nous sommes différents</h2>
+          <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto px-4">
+            Découvrez les raisons qui font de SCB Systems votre partenaire de confiance
+          </p>
+        </div>
 
-      <div class="relative">
-        <div
-          class="flex overflow-x-auto gap-6 py-4 scrollbar-hide"
-          ref="innovationsContainer"
-          @scroll="handleInnovationsScroll"
-        >
-          <div
-            v-for="(innovation, index) in innovations"
-            :key="index"
-            class="min-w-[260px] max-w-[260px] flex-shrink-0"
-          >
-            <div
-              class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 ease-out h-[350px] flex flex-col hover:shadow-lg"
-            >
-              <!-- Image  -->
-              <div
-                class="relative h-40 flex items-center justify-center bg-gray-50 p-3"
-              >
-                <img
-                  :src="innovation.image"
-                  :alt="innovation.title"
-                  class="max-w-full max-h-24 object-contain"
-                />
-              </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-5 sm:p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full mx-auto mb-3 sm:mb-4" style="background-color: #101E89;">
+              <svg class="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-center mb-2" style="color: #101E89;">Expertise certifiée</h3>
+            <p class="text-gray-600 text-xs sm:text-sm text-center">
+              Nos équipes sont certifiées aux normes internationales.
+            </p>
+          </div>
 
-              <!-- Contenu -->
-              <div class="p-4 flex-1 flex flex-col">
-                <h3
-                  class="text-base font-bold text-blue-900 mb-2 leading-tight"
-                >
-                  {{ innovation.title }}
-                </h3>
+          <div class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-5 sm:p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full mx-auto mb-3 sm:mb-4" style="background-color: #101E89;">
+              <svg class="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.66 0 3-4 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4-3-9s1.34-9 3-9"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-center mb-2" style="color: #101E89;">Présence internationale</h3>
+            <p class="text-gray-600 text-xs sm:text-sm text-center">
+              Implantés en Afrique, USA et France.
+            </p>
+          </div>
 
-                <p class="text-gray-600 text-xs flex-1 leading-relaxed mb-2">
-                  {{ innovation.description }}
-                </p>
+          <div class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-5 sm:p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full mx-auto mb-3 sm:mb-4" style="background-color: #101E89;">
+              <svg class="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-center mb-2" style="color: #101E89;">Innovation continue</h3>
+            <p class="text-gray-600 text-xs sm:text-sm text-center">
+              Investissement massif en R&D.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                <!-- Badge catégorie  -->
-                <div class="flex items-center justify-between mt-auto">
-                  <span
-                    class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-700"
-                  >
-                    {{ innovation.category }}
-                  </span>
-                  <span class="text-xs text-gray-500">
-                    {{ innovation.year }}
-                  </span>
-                </div>
-              </div>
+    <!-- Section Nos partenaires -->
+    <section class="py-12 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10 sm:mb-14">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style="color: #101E89;">Nos partenaires stratégiques</h2>
+          <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto px-4">
+            Des partenariats solides pour vous offrir les meilleures solutions
+          </p>
+          <div class="w-20 h-1 mx-auto mt-4 rounded-full" style="background-color: #101E89;"></div>
+        </div>
+
+        <!-- Grille  -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 justify-items-center items-center">
+          <div v-for="(partner, index) in partners" :key="index" class="text-center">
+            <div class=" rounded-xl p-4 hover:shadow-md transition-all duration-300 flex items-center justify-center h-24 w-32">
+              <img :src="partner.logo" :alt="partner.name" class="max-w-full max-h-16 object-contain" />
             </div>
           </div>
         </div>
 
-        <!-- Indicateurs -->
-        <div class="flex justify-center items-center gap-2 mt-6">
-          <div
-            v-for="(innovation, index) in innovations"
-            :key="index"
-            @click="scrollToInnovation(index)"
-            :class="[
-              'w-2 h-2 rounded-full cursor-pointer transition-all duration-300',
-              activeInnovationIndex === index
-                ? 'bg-blue-600 w-6'
-                : 'bg-gray-300 hover:bg-gray-400',
-            ]"
-          ></div>
+        <div class="mt-12 text-center">
+          <div class="inline-block max-w-lg mx-auto">
+            <p class="text-white text-sm mb-3">
+              Rejoignez notre réseau d'excellence
+            </p>
+            <router-link to="/contact" class="inline-block px-6 py-2 bg-[#101E89] text-white rounded-full font-semibold transition transform hover:scale-105 text-sm shadow-lg" style="color: #ffff;">
+              Devenir partenaire →
+            </router-link>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact CTA Section  -->
-    <section
-      class="py-16 px-6 md:px-10 flex flex-col items-center justify-center fade-in-card"
-    >
-      <div
-        class="bg-white rounded-xl shadow-xl p-8 max-w-2xl w-full text-center fade-in-card"
-      >
-        <h2
-          class="text-3xl md:text-4xl font-bold text-blue-900 mb-4 fade-in-card"
-        >
-          Vous avez un projet en tête?
-        </h2>
-        <p class="text-lg text-gray-700 mb-6 fade-in-card">
-          Notre équipe est à votre écoute pour concrétiser vos idées et vous
-          accompagner dans toutes les étapes de votre projet.
-        </p>
-        <router-link
-          to="/contact"
-          class="bg-blue-700 text-white font-bold px-8 py-3 rounded-full hover:bg-blue-800 transition text-lg shadow-lg fade-in-card"
-        >
-          Discutons-en
-        </router-link>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section
-      class="py-20 px-6 md:px-10 flex flex-col items-center justify-center bg-white fade-in-card"
-    >
-      <h1
-        class="text-4xl md:text-5xl font-extrabold text-blue-900 mb-2 text-center fade-in-card"
-      >
-        Concrétisez vos projets
-      </h1>
-      <p
-        class="text-xl text-blue-700 mb-10 text-center font-medium fade-in-card"
-      >
-        Contactez-nous
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
-        <div
-          class="bg-blue-50 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center fade-in-card"
-        >
-          <i
-            class="bx bx-phone-call text-5xl text-blue-700 mb-4 fade-in-card"
-          ></i>
-          <h2 class="text-2xl font-bold text-blue-900 mb-2 fade-in-card">
-            Appelez-nous
-          </h2>
-          <p class="text-gray-700 mb-4 fade-in-card">
-            Besoin d'un conseil ou d'un devis? Appelez-nous ou demandez à être
-            rappelé par notre équipe.
+    <!-- Section Contact CTA -->
+    <section class="py-10 sm:py-16 bg-gray-100">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="bg-white rounded-xl shadow-lg p-6 sm:p-8 text-center">
+          <h2 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3" style="color: #101E89;">Prêt à transformer votre entreprise ?</h2>
+          <p class="text-gray-700 mb-4 sm:mb-5 text-xs sm:text-sm px-2">
+            Rejoignez les entreprises qui nous font confiance et donnez un nouvel élan à votre projet.
           </p>
-          <a
-            href="tel:+22500000000"
-            class="bg-blue-700 text-white font-bold px-6 py-2 rounded-full hover:bg-blue-800 transition shadow-lg fade-in-card"
-            >Appeler</a
-          >
-          <a
-            href="javascript:void(0)"
-            class="mt-2 text-blue-700 underline hover:text-blue-900 fade-in-card"
-            >Demander à être rappelé</a
-          >
+          <router-link to="/contact" class="inline-block px-6 sm:px-8 py-2 sm:py-3 text-white font-semibold rounded-full transition transform hover:scale-105 shadow-lg text-sm sm:text-base" style="background-color: #101E89;">
+            Discutons-en
+          </router-link>
         </div>
-        <div
-          class="bg-blue-50 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center fade-in-card"
-        >
-          <i
-            class="bx bx-message-detail text-5xl text-blue-700 mb-4 fade-in-card"
-          ></i>
-          <h2 class="text-2xl font-bold text-blue-900 mb-2 fade-in-card">
-            Envoyez-nous un message
+      </div>
+    </section>
+
+    <!-- Section Équipe -->
+    <section class="py-12 sm:py-20 text-white relative overflow-hidden" style="background: linear-gradient(to bottom right, #0a125c, #101E89, #0a125c);">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl" style="background-color: #3a4fd4;"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl" style="background-color: #3a4fd4;"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="text-center mb-8 sm:mb-12">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">
+            Notre Équipe
           </h2>
-          <p class="text-gray-700 mb-4 fade-in-card">
-            Obtenez une réponse en moins de 24H. Notre équipe est disponible
-            pour vous accompagner.
+          <p class="text-blue-200 text-base sm:text-lg max-w-2xl mx-auto px-4">
+            Des talents passionnés répartis sur 3 continents pour vous accompagner
           </p>
-          <RouterLink
-            to="/contact"
-            class="bg-blue-700 text-white font-bold px-6 py-2 rounded-full hover:bg-blue-800 transition shadow-lg fade-in-card"
-            >Contactez-nous</RouterLink
-          >
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div class="group relative bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 text-center hover:bg-white/20 transition-all duration-500 hover:-translate-y-3 border border-white/20">
+            <div class="absolute -top-5 left-1/2 transform -translate-x-1/2">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg" style="background: linear-gradient(to right, #2a3eb8, #101E89);">
+                <span class="text-xl sm:text-2xl">🌍</span>
+              </div>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold mt-4 sm:mt-6 mb-2 sm:mb-3">SCB SYSTEMS AFRICA</h3>
+            <p class="text-blue-200 text-xs sm:text-sm mb-3 sm:mb-4">Siège social - Abidjan, Côte d'Ivoire</p>
+            <div class="flex justify-center gap-2 mb-4 sm:mb-6 flex-wrap">
+              <span class="px-2 py-1 rounded-full text-xs bg-white/20">Expertise locale</span>
+              <span class="px-2 py-1 rounded-full text-xs bg-white/20">Leadership africain</span>
+            </div>
+            <router-link :to="{ name: 'TeamPage', params: { region: 'Africa' } }" class="inline-block px-5 sm:px-6 py-1.5 sm:py-2 text-white font-semibold rounded-xl transition transform hover:scale-105 text-sm" style="background-color: #101E89;">
+              Découvrir l'équipe
+            </router-link>
+          </div>
+
+          <div class="group relative bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 text-center hover:bg-white/20 transition-all duration-500 hover:-translate-y-3 border border-white/20">
+            <div class="absolute -top-5 left-1/2 transform -translate-x-1/2">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg" style="background: linear-gradient(to right, #2a3eb8, #101E89);">
+                <span class="text-xl sm:text-2xl">🇺🇸</span>
+              </div>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold mt-4 sm:mt-6 mb-2 sm:mb-3">SCB SYSTEMS USA</h3>
+            <p class="text-blue-200 text-xs sm:text-sm mb-3 sm:mb-4">New York, États-Unis</p>
+            <div class="flex justify-center gap-2 mb-4 sm:mb-6 flex-wrap">
+              <span class="px-2 py-1 rounded-full text-xs bg-white/20">Innovation</span>
+              <span class="px-2 py-1 rounded-full text-xs bg-white/20">Tech hub</span>
+            </div>
+            <router-link :to="{ name: 'TeamPage', params: { region: 'USA' } }" class="inline-block px-5 sm:px-6 py-1.5 sm:py-2 text-white font-semibold rounded-xl transition transform hover:scale-105 text-sm" style="background-color: #101E89;">
+              Découvrir l'équipe
+            </router-link>
+          </div>
+
+          <div class="group relative bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 text-center hover:bg-white/20 transition-all duration-500 hover:-translate-y-3 border border-white/20">
+            <div class="absolute -top-5 left-1/2 transform -translate-x-1/2">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg" style="background: linear-gradient(to right, #2a3eb8, #101E89);">
+                <span class="text-xl sm:text-2xl">🇫🇷</span>
+              </div>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold mt-4 sm:mt-6 mb-2 sm:mb-3">SCB SYSTEMS FRANCE</h3>
+            <p class="text-blue-200 text-xs sm:text-sm mb-3 sm:mb-4">Paris, France</p>
+            <div class="flex justify-center gap-2 mb-4 sm:mb-6 flex-wrap">
+              <span class="px-2 py-1 rounded-full text-xs bg-white/20">R&D</span>
+              <span class="px-2 py-1 rounded-full text-xs bg-white/20">European excellence</span>
+            </div>
+            <router-link :to="{ name: 'TeamPage', params: { region: 'France' } }" class="inline-block px-5 sm:px-6 py-1.5 sm:py-2 text-white font-semibold rounded-xl transition transform hover:scale-105 text-sm" style="background-color: #101E89;">
+              Découvrir l'équipe
+            </router-link>
+          </div>
+        </div>
+
+        <div class="mt-8 sm:mt-12 text-center max-w-3xl mx-auto bg-white/5 rounded-xl p-5 sm:p-6 border border-white/10">
+          <p class="text-base sm:text-lg italic px-2">
+            "Une équipe passionnée et disponible qui a su transformer nos idées en solutions concrètes."
+          </p>
+          <p class="mt-2 sm:mt-3 text-blue-300 font-semibold text-sm sm:text-base">— Client satisfait</p>
         </div>
       </div>
     </section>
 
-    <!-- Section Équipe  -->
-    <section
-      class="px-6 py-12 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden fade-in-card"
-    >
-      <h2
-        class="text-5xl md:text-6xl font-extrabold text-blue-900 mb-10 text-center tracking-tight fade-in-card"
-      >
-        Notre Équipe
-      </h2>
-      <p
-        class="text-center text-black mb-12 max-w-3xl mx-auto text-lg fade-in-card"
-      >
-        Derrière SCB SYSTEMS se cache une équipe soudée de talents passionnés.
-      </p>
-      <div class="flex flex-row justify-center gap-8 overflow-x-auto py-4">
-        <div
-          class="region-card bg-white rounded-3xl shadow-xl p-8 min-w-[300px] flex flex-col items-center text-center transform hover:scale-105 transition fade-in-card"
-        >
-          <div class="flex items-center gap-3 fade-in-card">
-            <h3
-              class="text-2xl md:text-3xl font-bold text-blue-900 min-w-[200px]"
-            >
-              SCB SYSTEMS AFRICA
-            </h3>
-            <img
-              src="/images/afrique.png"
-              alt="icone Afrique"
-              class="w-8 h-8 object-contain fade-in-card"
-            />
+    <!-- Section Certifications -->
+    <section class="py-10 sm:py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-10" style="color: #101E89;">Nos Certifications</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 justify-items-center">
+          <div v-for="(cert, i) in certifications" :key="i" class="text-center">
+            <img :src="cert.image" :alt="cert.title" class="w-16 h-16 sm:w-20 sm:h-20 object-contain" />
           </div>
-          <router-link
-            :to="{ name: 'TeamPage', params: { region: 'Africa' } }"
-            class="mt-6 px-8 py-3 rounded-2xl bg-blue-600 text-white font-semibold hover:bg-blue-700 text-lg transition fade-in-card"
-            >Savoir plus</router-link
-          >
-        </div>
-        <div
-          class="region-card bg-white rounded-3xl shadow-xl p-8 min-w-[300px] flex flex-col items-center text-center transform hover:scale-105 transition fade-in-card"
-        >
-          <div class="flex items-center gap-3 fade-in-card">
-            <h3
-              class="text-2xl md:text-3xl font-bold text-blue-900 min-w-[200px]"
-            >
-              SCB SYSTEMS USA
-            </h3>
-            <img
-              src="/images/les-etats-unis-damerique.png"
-              alt="icone USA"
-              class="w-8 h-8 object-contain fade-in-card"
-            />
-          </div>
-          <router-link
-            :to="{ name: 'TeamPage', params: { region: 'USA' } }"
-            class="mt-6 px-8 py-3 rounded-2xl bg-blue-600 text-white font-semibold hover:bg-blue-700 text-lg transition fade-in-card"
-            >Savoir plus</router-link
-          >
-        </div>
-        <div
-          class="region-card bg-white rounded-3xl shadow-xl p-8 min-w-[300px] flex flex-col items-center text-center transform hover:scale-105 transition fade-in-card"
-        >
-          <div class="flex items-center gap-3 fade-in-card">
-            <h3
-              class="text-2xl md:text-3xl font-bold text-blue-900 min-w-[200px]"
-            >
-              SCB SYSTEMS FRANCE
-            </h3>
-            <img
-              src="/images/france.png"
-              alt="icone France"
-              class="w-8 h-8 object-contain fade-in-card"
-            />
-          </div>
-          <router-link
-            :to="{ name: 'TeamPage', params: { region: 'France' } }"
-            class="mt-6 px-8 py-3 rounded-2xl bg-blue-600 text-white font-semibold hover:bg-blue-700 text-lg transition fade-in-card"
-            >Savoir plus</router-link
-          >
         </div>
       </div>
     </section>
 
-    <!-- Certifications -->
-    <section class="py-20 px-6 md:px-10 bg-gray-50 fade-in-card">
-      <h2
-        class="text-4xl md:text-5xl font-bold text-blue-900 text-center mb-12 fade-in-card"
-      >
-        Nos Certifications
-      </h2>
-      <div
-        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-items-center items-center"
-      >
-        <div
-          v-for="(cert, i) in certifications"
-          :key="i"
-          class="flex flex-col items-center fade-in-card"
-        >
-          <img
-            :src="cert.image"
-            alt=""
-            class="h-28 w-28 object-contain mb-2 fade-in-card"
-          />
-          <h3
-            class="text-base md:text-lg font-semibold text-blue-800 text-center fade-in-card"
-          >
-            {{ cert.title }}
-          </h3>
-        </div>
-      </div>
-    </section>
-
-    <!-- Bouton Retour en Haut -->
-    <button
-      @click="scrollToTop"
-      class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition transform hover:scale-110 z-50 fade-in-card"
-      title="Retour en haut"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M5 15l7-7 7 7"
-        />
-      </svg>
+    <!-- Bouton retour en haut -->
+    <button @click="scrollToTop" v-show="showScrollTop" class="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 text-white w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg transition transform hover:scale-110 z-50 text-xl sm:text-2xl" style="background-color: #101E89;">
+      ↑
     </button>
   </div>
 </template>
@@ -494,314 +358,83 @@
 import { ref, onMounted, onUnmounted } from "vue";
 
 const heroImages = [
-  {
-    url: "/images/banner.jpg",
-    title: "LEADER AFRICAIN EN INGÉNIERIE ET TECHNOLOGIE INNOVANTE",
-  },
-  {
-    url: "/images/Site web SCB_Plan de travail 1 copie.jpg",
-    title: "MAÎTRISE TOTALE DE LA GESTION DES CONNAISSANCES",
-  },
-  {
-    url: "/images/Site web SCB_Plan de travail 1 copie 2.jpg",
-    title: "OPTIMISEZ VOTRE NUMÉRISATION POUR UNE PERFORMANCE MAXIMALE",
-  },
+  { url: "/images/banner.jpg", title: "MAÎTRISE TOTALE DE LA GESTION DES CONNAISSANCES" },
+  { url: "/images/header2.jpg", title: "LEADER AFRICAIN EN INGÉNIERIE ET TECHNOLOGIE INNOVANTE" },
+  { url: "/images/header3.jpg", title: "OPTIMISEZ VOTRE NUMÉRISATION POUR UNE PERFORMANCE MAXIMALE" },
 ];
 
-const projects = [
-  {
-    image: "/images/Scb-Academy.png",
-    title: "SCB Academy",
-    description:
-      " Développement des compétences techniques et professionnelles.",
-    status: "En cours",
-    year: "2025",
-  },
-  {
-    image: "/images/scb dr 2.png",
-    title: "SCB Drone",
-    description: "Avec ce site vous pouvez decouvrir le monde des drones.",
-    status: "En cours",
-    year: "2025",
-  },
-  {
-    image: "/images/boursepay sf.png",
-    title: "BoursePay",
-    description:
-      "Système de paiement sécurisé pour les bourses d'etudes à l'etranger.",
-    status: "Complété",
-    year: "2024",
-  },
-  {
-    image: "/images/product-7-removebg-preview.png",
-    title: "UISIDIR",
-    description: "Automatisation intelligente des processus.",
-    status: "En cours",
-    year: "2024",
-  },
-  {
-    image: "/images/product-9-removebg-preview.png",
-    title: "Une projet plus que créatif",
-    description: "Plateforme pour les ambassades de côte d'ivoire aux USA.",
-    status: "Complété",
-    year: "2023",
-  },
-  {
-    image: "/images/logo (2).png",
-    title: "Plateforme prise de rendez-vous Sécurisée",
-    description:
-      "Avec secure check pas besion de se deplacer pour un rendez-vous.",
-    status: "Complété",
-    year: "2023",
-  },
+// Clients qui nous font confiance
+const trustedClients = [
+  { name: "AIGEF", logo: "/images/aigef.png" },
+  { name: "ANSSI", logo: "/images/anssi.png" },
+  { name: "ANSUT", logo: "/images/ansut.png" },
+  { name: "ANTEREZA", logo: "/images/antereza.png" },
+  { name: "ARTCI", logo: "/images/artci.png" },
+  { name: "Guinée", logo: "/images/guinee.png" },
+  { name: "La Poste CI", logo: "/images/laposteci.png" },
+  { name: "Millenium", logo: "/images/millenium.png" },
+  { name: "Ministère", logo: "/images/ministere.png" },
+  { name: "NH", logo: "/images/nh.png" },
+  { name: "Numérique", logo: "/images/numerique.png" },
+  { name: "ONECI", logo: "/images/oneci.png" },
 ];
 
-const innovations = [
-  {
-    image: "/images/Innovation 1.png",
-    title: "Appolo",
-    description: "Votre plateforme de santé.",
-    category: "Santé",
-  },
-  {
-    image: "/images/Innovation 2.png",
-    title: "Blockchain Secure",
-    description: "Technologie blockchain .",
-    category: "Sécurité",
-  },
-  {
-    image: "/images/Innovation 3.png",
-    title: "Entrepreunariat ship",
-    description: "Pour celebrer les jeunes talentueux.",
-    category: "Conférence",
-  },
-  {
-    image: "/images/Innovation 4.png",
-    title: "  SENECA",
-    description: "Une forme d'architectures.",
-    category: "Cloud Computing",
-  },
-  {
-    image: "/images/Innovation 5.png",
-    title: "Kora",
-    description: "Votre plateforme pour lire des livres.",
-    category: "Big Data",
-  },
-  {
-    image: "/images/Innovation 6.png",
-    title: "Mobile First",
-    description: "Approche mobile-first.",
-    category: "Développement Mobile",
-  },
-  {
-    image: "/images/Innovation 7.png",
-    title: "e-civils",
-    description: "Réalité virtuelle interactive.",
-    category: "Réalité Virtuelle",
-  },
-  {
-    image: "/images/Innovation 8.png",
-    title: "API Gateway",
-    description: "Gestion centralisée des APIs.",
-    category: "Architecture",
-  },
-  {
-    image: "/images/Innovation 9.png",
-    title: "DevOps Auto",
-    description: "Automatisation des processus DevOps.",
-    category: "DevOps",
-  },
+// Partenaires stratégiques
+const partners = [
+  { name: "AWS", logo: "/images/Aws.png", type: "Partenaire Technologique" },
+  { name: "CHU", logo: "/images/chu.png", type: "Partenaire Réseau" },
+  { name: "FedEx", logo: "/images/FedEx.png", type: "Partenaire IA" },
+  { name: "GW", logo: "/images/gw.png", type: "Partenaire Cloud" },
+  { name: "HCL", logo: "/images/hcl.png", type: "Partenaire ERP" },
+  { name: "Nsicorps", logo: "/images/Nsicorps.png", type: "Partenaire Cloud" },
+  { name: "Mobileum", logo: "/images/mobileum.png", type: "Partenaire Cloud" },
+  { name: "SeedSpot", logo: "/images/SeedSpot.png", type: "Partenaire Hardware" },
 ];
 
 const certifications = [
-  { image: "/images/certification 1.png" },
-  { image: "/images/Certification 2.png" },
-  { image: "/images/Certification 3.png" },
-  { image: "/images/Certification 4.png" },
-  { image: "/images/Certification 5.png" },
-  { image: "/images/Certificatio 6.png" },
-  { image: "/images/Certification 7.png" },
-  { image: "/images/Certification 8.png" },
-  { image: "/images/Certification 9.png" },
-  { image: "/images/Certification 10.png" },
-  { image: "/images/Certification 11.png" },
+  { image: "/images/certification1.png", title: "Certification 1" },
+  { image: "/images/Certification2.png", title: "Certification 2" },
+  { image: "/images/Certification3.png", title: "Certification 3" },
+  { image: "/images/Certification4.png", title: "Certification 4" },
+  { image: "/images/Certification5.png", title: "Certification 5" },
+  { image: "/images/Certification6.png", title: "Certification 6" },
+  { image: "/images/Certification7.png", title: "Certification 7" },
+  { image: "/images/Certification8.png", title: "Certification 8" },
+  { image: "/images/Certification9.png", title: "Certification 9" },
+  { image: "/images/Certification10.png", title: "Certification 10" },
+  { image: "/images/Certification11.png", title: "Certification 11" },
 ];
 
 const currentImageIndex = ref(0);
-const activeProjectIndex = ref(0);
-const activeInnovationIndex = ref(0);
-const projectsContainer = ref(null);
-const innovationsContainer = ref(null);
-let autoScrollInterval;
+const showScrollTop = ref(false);
+
+let heroInterval;
 
 onMounted(() => {
-  // Changement automatique images hero
-  setInterval(() => {
+  heroInterval = setInterval(() => {
     currentImageIndex.value = (currentImageIndex.value + 1) % heroImages.length;
   }, 5000);
 
-  // Défilement automatique des projets et innovations (beaucoup plus lent)
-  startAutoScroll();
-
-  // Animation progressive cartes
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("fade-in-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  document.querySelectorAll(".fade-in-on-scroll").forEach((el) => {
-    observer.observe(el);
+  window.addEventListener("scroll", () => {
+    showScrollTop.value = window.scrollY > 500;
   });
 });
 
 onUnmounted(() => {
-  if (autoScrollInterval) {
-    clearInterval(autoScrollInterval);
-  }
+  if (heroInterval) clearInterval(heroInterval);
 });
 
-// Défilement automatique BEAUCOUP PLUS LENT
-const startAutoScroll = () => {
-  autoScrollInterval = setInterval(() => {
-    if (projectsContainer.value) {
-      projectsContainer.value.scrollLeft += 0.5; // Réduit de 1 à 0.5
-      if (
-        projectsContainer.value.scrollLeft >=
-        projectsContainer.value.scrollWidth -
-          projectsContainer.value.clientWidth
-      ) {
-        projectsContainer.value.scrollLeft = 0;
-      }
-    }
-
-    if (innovationsContainer.value) {
-      innovationsContainer.value.scrollLeft += 0.5; // Réduit de 1 à 0.5
-      if (
-        innovationsContainer.value.scrollLeft >=
-        innovationsContainer.value.scrollWidth -
-          innovationsContainer.value.clientWidth
-      ) {
-        innovationsContainer.value.scrollLeft = 0;
-      }
-    }
-  }, 50); // Augmenté de 30ms à 50ms pour ralentir encore plus
-};
-
-// Gestion du scroll des projets
-const handleProjectsScroll = () => {
-  if (projectsContainer.value) {
-    const scrollLeft = projectsContainer.value.scrollLeft;
-    const cardWidth = projectsContainer.value.children[0]?.offsetWidth || 280;
-    const gap = 24; // gap-6 = 24px
-    const newIndex = Math.round(scrollLeft / (cardWidth + gap));
-    activeProjectIndex.value = Math.max(
-      0,
-      Math.min(newIndex, projects.length - 1)
-    );
-  }
-};
-
-// Gestion du scroll des innovations
-const handleInnovationsScroll = () => {
-  if (innovationsContainer.value) {
-    const scrollLeft = innovationsContainer.value.scrollLeft;
-    const cardWidth =
-      innovationsContainer.value.children[0]?.offsetWidth || 260;
-    const gap = 24; // gap-6 = 24px
-    const newIndex = Math.round(scrollLeft / (cardWidth + gap));
-    activeInnovationIndex.value = Math.max(
-      0,
-      Math.min(newIndex, innovations.length - 1)
-    );
-  }
-};
-
-// Navigation vers un projet spécifique
-const scrollToProject = (index) => {
-  if (projectsContainer.value) {
-    const cardWidth = projectsContainer.value.children[0]?.offsetWidth || 280;
-    const gap = 24;
-    projectsContainer.value.scrollLeft = index * (cardWidth + gap);
-    activeProjectIndex.value = index;
-  }
-};
-
-// Navigation vers une innovation spécifique
-const scrollToInnovation = (index) => {
-  if (innovationsContainer.value) {
-    const cardWidth =
-      innovationsContainer.value.children[0]?.offsetWidth || 260;
-    const gap = 24;
-    innovationsContainer.value.scrollLeft = index * (cardWidth + gap);
-    activeInnovationIndex.value = index;
-  }
-};
-
-// Fonction "Retour en haut"
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
-
-window.addEventListener("scroll", function () {
-  const elements = document.querySelectorAll(".fade-in-card");
-  const windowBottom = window.innerHeight + window.scrollY;
-
-  elements.forEach((el) => {
-    const elementBottom = el.offsetTop + el.offsetHeight / 4;
-    if (windowBottom > elementBottom) {
-      el.classList.add("show");
-    }
-  });
-});
 </script>
 
 <style scoped>
-/* Overlay léger pour toutes les images */
-.bg-black\/50 {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-/* Transition douce des images */
-.transition-opacity {
-  transition: opacity 1s ease-in-out;
-}
-
-/* Cacher la scrollbar pour le carrousel */
-.flex::-webkit-scrollbar {
-  display: none;
-}
-.flex {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-/* Smooth scroll pour toute la page */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Animations pour les cartes */
-.fade-in-card {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-.fade-in-card.show {
-  opacity: 1;
-  transform: translateY(0);
 }
 </style>

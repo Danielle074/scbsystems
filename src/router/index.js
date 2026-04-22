@@ -9,10 +9,12 @@ import Dashboard from '../components/Dashboard.vue'
 import Partenaires from '../components/Partenaires.vue'
 import NousRejoindre from '../components/NousRejoindre.vue'
 import Actualite from '../components/Actualite.vue'
+import Projet from '../views/Projet.vue'
 
 
 const routes = [
   { path: '/', name: 'Home', component: Home, meta: { layout: true } },
+  { path: '/projet', name: 'Projet', component: Projet, meta: { layout: true } },
   { path: '/test', name: 'Test', component: Test, meta: { layout: true } },
   { path: '/a-propos', name: 'About', component: About, meta: { layout: true } },
   { path: '/services', name: 'Services', component: Services, meta: { layout: true } },
