@@ -15,10 +15,10 @@
       </div>
 
       <div class="relative z-10 h-full w-full flex flex-col justify-center items-center text-center px-4 sm:px-6">
-        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white drop-shadow-lg leading-tight max-w-4xl mt-10 sm:mt-14">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-extrabold text-white drop-shadow-lg leading-tight max-w-4xl mt-20 sm:mt-14">
           {{ heroImages[currentImageIndex].title }}
         </h1>
-        <router-link to="/services" class="mt-6 sm:mt-8 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-white font-semibold transition transform hover:scale-105 shadow-lg text-sm sm:text-base" style="background-color: #101E89;">
+        <router-link to="/services" class="mt-10 sm:mt-8 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-white font-semibold transition transform hover:scale-105 shadow-lg text-sm sm:text-base" style="background-color: #101E89;">
           Découvrir nos services
         </router-link>
       </div>
@@ -38,7 +38,7 @@
     <section class="py-10 sm:py-16 text-white" style="background-color: #101E89;">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="text-center mb-6 sm:mb-10">
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4">SCB Systems en chiffres</h2>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4">SCB SYSTEMS en chiffres</h2>
           <p class="text-blue-200 text-base sm:text-lg">Des résultats qui parlent d'eux-mêmes</p>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
@@ -101,7 +101,7 @@
             </h2>
             <div class="space-y-2 sm:space-y-3 mt-4 sm:mt-6">
               <p class="text-gray-700 text-xs sm:text-sm leading-relaxed">
-                SCB Systems est une entreprise leader dans le domaine de l'ingénierie 
+                SCB SYSTEMS est une entreprise leader dans le domaine de l'ingénierie 
                 et de la technologie innovante en Afrique et dans le monde.
               </p>
               <p class="text-gray-700 text-xs sm:text-sm leading-relaxed">
@@ -143,7 +143,7 @@
         <!-- Grille -->
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 sm:gap-8 justify-items-center items-center">
           <div v-for="(client, index) in trustedClients" :key="index" class="text-center">
-            <div class="rounded-xl p-4 hover:shadow-md transition-all duration-300 flex items-center justify-center h-24 w-32">
+            <div class="rounded-xl p-4 hover:shadow-md transition-all duration-300 flex items-center justify-center h-32 w-56">
               <img :src="client.logo" :alt="client.name" class="max-w-full max-h-16 object-contain" />
             </div>
           </div>
@@ -151,7 +151,7 @@
 
         <div class="mt-12 text-center">
           <p class="text-gray-600 text-sm italic">
-            "SCB Systems nous accompagne depuis 5 ans avec un professionnalisme et une expertise remarquables."
+            "SCB SYSTEMS nous accompagne depuis 5 ans avec un professionnalisme et une expertise remarquables."
           </p>
           <p class="text-gray-500 text-xs mt-2">— Directeur IT, Grande Entreprise</p>
         </div>
@@ -164,7 +164,7 @@
         <div class="text-center mb-8 sm:mb-12">
           <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" style="color: #101E89;">Pourquoi nous sommes différents</h2>
           <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto px-4">
-            Découvrez les raisons qui font de SCB Systems votre partenaire de confiance
+            Découvrez les raisons qui font de SCB SYSTEMS votre partenaire de confiance
           </p>
         </div>
 
@@ -222,7 +222,7 @@
         <!-- Grille  -->
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 justify-items-center items-center">
           <div v-for="(partner, index) in partners" :key="index" class="text-center">
-            <div class="rounded-xl p-4 hover:shadow-md transition-all duration-300 flex items-center justify-center h-24 w-32">
+            <div class="rounded-xl p-4 hover:shadow-md transition-all duration-300 flex items-center justify-center h-32 w-60">
               <img :src="partner.logo" :alt="partner.name" class="max-w-full max-h-16 object-contain" />
             </div>
           </div>
@@ -281,7 +281,7 @@
               </div>
             </div>
             <h3 class="text-xl sm:text-2xl font-bold mt-4 sm:mt-6 mb-2 sm:mb-3">SCB SYSTEMS AFRICA</h3>
-            <p class="text-blue-200 text-xs sm:text-sm mb-3 sm:mb-4">Siège social - Abidjan, Côte d'Ivoire</p>
+            <p class="text-blue-200 text-xs sm:text-sm mb-3 sm:mb-4">Abidjan, Côte d'Ivoire</p>
             <div class="flex justify-center gap-2 mb-4 sm:mb-6 flex-wrap">
               <span class="px-2 py-1 rounded-full text-xs bg-white/20">Expertise locale</span>
               <span class="px-2 py-1 rounded-full text-xs bg-white/20">Leadership africain</span>
@@ -298,7 +298,7 @@
               </div>
             </div>
             <h3 class="text-xl sm:text-2xl font-bold mt-4 sm:mt-6 mb-2 sm:mb-3">SCB SYSTEMS USA</h3>
-            <p class="text-blue-200 text-xs sm:text-sm mb-3 sm:mb-4">New York, États-Unis</p>
+            <p class="text-blue-200 text-xs sm:text-sm mb-3 sm:mb-4">Virginia, États-Unis</p>
             <div class="flex justify-center gap-2 mb-4 sm:mb-6 flex-wrap">
               <span class="px-2 py-1 rounded-full text-xs bg-white/20">Innovation</span>
               <span class="px-2 py-1 rounded-full text-xs bg-white/20">Tech hub</span>
@@ -315,7 +315,7 @@
               </div>
             </div>
             <h3 class="text-xl sm:text-2xl font-bold mt-4 sm:mt-6 mb-2 sm:mb-3">SCB SYSTEMS FRANCE</h3>
-            <p class="text-blue-200 text-xs sm:text-sm mb-3 sm:mb-4">Paris, France</p>
+            <p class="text-blue-200 text-xs sm:text-sm mb-3 sm:mb-4">Versailles, France</p>
             <div class="flex justify-center gap-2 mb-4 sm:mb-6 flex-wrap">
               <span class="px-2 py-1 rounded-full text-xs bg-white/20">R&D</span>
               <span class="px-2 py-1 rounded-full text-xs bg-white/20">European excellence</span>
@@ -341,7 +341,7 @@
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-10" style="color: #101E89;">Nos Certifications</h2>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 justify-items-center">
           <div v-for="(cert, i) in certifications" :key="i" class="text-center">
-            <img :src="cert.image" :alt="cert.title" class="w-16 h-16 sm:w-20 sm:h-20 object-contain" />
+            <img :src="cert.image" :alt="cert.title" class="w-42 h-32 sm:w-20 sm:h-20 object-contain" />
           </div>
         </div>
       </div>
@@ -384,7 +384,6 @@ import oneciLogo from "../assets/images/oneci.png";
 
 // Partenaires stratégiques
 import awsLogo from "../assets/images/Aws.png";
-import chuLogo from "../assets/images/chu.png";
 import fedexLogo from "../assets/images/FedEx.png";
 import gwLogo from "../assets/images/gw.png";
 import hclLogo from "../assets/images/hcl.png";
@@ -398,7 +397,6 @@ import cert2 from "../assets/images/Certification2.png";
 import cert3 from "../assets/images/Certification3.png";
 import cert4 from "../assets/images/Certification4.png";
 import cert5 from "../assets/images/Certification5.png";
-import cert6 from "../assets/images/Certification5.png";
 import cert7 from "../assets/images/Certification7.png";
 import cert8 from "../assets/images/Certification8.png";
 import cert9 from "../assets/images/Certification9.png";
@@ -431,7 +429,6 @@ const trustedClients = [
 // Partenaires stratégiques
 const partners = [
   { name: "AWS", logo: awsLogo, type: "Partenaire Technologique" },
-  { name: "CHU", logo: chuLogo, type: "Partenaire Réseau" },
   { name: "FedEx", logo: fedexLogo, type: "Partenaire IA" },
   { name: "GW", logo: gwLogo, type: "Partenaire Cloud" },
   { name: "HCL", logo: hclLogo, type: "Partenaire ERP" },
@@ -447,7 +444,6 @@ const certifications = [
   { image: cert3, title: "Certification 3" },
   { image: cert4, title: "Certification 4" },
   { image: cert5, title: "Certification 5" },
-  { image: cert6, title: "Certification 6" },
   { image: cert7, title: "Certification 7" },
   { image: cert8, title: "Certification 8" },
   { image: cert9, title: "Certification 9" },

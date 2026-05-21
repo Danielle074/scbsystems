@@ -41,8 +41,9 @@
           <!-- Projet 1: Express 54 -->
           <div v-for="(project, index) in projects" :key="index" class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
             <div :class="['grid md:grid-cols-2 gap-0', index % 2 === 1 ? 'md:flex-row-reverse' : '']">
-              <div class="relative h-64 md:h-auto overflow-hidden">
-                <img :src="project.image" :alt="project.title" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
+              <div class="relative h-64 md:h-auto overflow-hidden bg-gray-50">
+                <!-- MODIFICATION ICI : object-contain + centrage -->
+                <img :src="project.image" :alt="project.title" class="w-full h-full object-contain object-center transition duration-700 group-hover:scale-105" />
               </div>
               <div class="p-8 md:p-10">
                 <div class="flex items-center gap-4 mb-4">
@@ -167,6 +168,7 @@ import maPosteLogo from "../assets/images/MaPostelogo.png"
 import polibyLogo from "../assets/images/Polibylaposte.png"
 import laPosteCILogo from "../assets/images/laposteci.png"
 import goPosteLogo from "../assets/images/gopost.png"
+import checksecureLogo from "../assets/images/logo.png"
 
 // Header image
 const projectsHeaderImage = headerProjetImage
@@ -226,7 +228,7 @@ const projects = ref([
     tags: ["Digitalisation", "Formation", "Conseil"]
   },
   {
-    title: "Go Poste",
+    title: "Go'Post",
     logo: goPosteLogo,
     image: goPosteLogo,
     badge: "Application mobile",
@@ -235,6 +237,19 @@ const projects = ref([
       "Envoi et suivi de colis mobile",
       "Paiement mobile intégré",
       "Notifications push en temps réel"
+    ],
+    tags: ["Mobile", "Paiement", "UX/UI"]
+  },
+  {
+    title: "SECURE CHECK",
+    logo: checksecureLogo,
+    image: checksecureLogo,
+    badge: "Application prise de rendez-vous",
+    description: "Application Web qui facilite la prise de rendez-vous dans une autre entreprise sans vous deplacer.",
+    features: [
+      "Prise de rendez-vous",
+      "Suivis de projet",
+      "Pointage de présence ou absence"
     ],
     tags: ["Mobile", "Paiement", "UX/UI"]
   }
@@ -251,7 +266,7 @@ const stats = ref([
 // Témoignages
 const testimonials = ref([
   {
-    text: "SCB Systems a révolutionné notre système de livraison avec Express 54. Aujourd'hui, nos clients sont plus satisfaits que jamais.",
+    text: "SCB SYSTEMS a révolutionné notre système de livraison avec Express 54. Aujourd'hui, nos clients sont plus satisfaits que jamais.",
     initials: "JD",
     name: "Jean Dupont",
     position: "Directeur Logistique"

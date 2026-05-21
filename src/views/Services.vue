@@ -175,7 +175,7 @@
             NOTRE IMPACT
           </span>
           <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
-            SCB Systems en chiffres
+            SCB SYSTEMS en chiffres
           </h2>
           <div class="w-20 h-1 mx-auto rounded-full bg-white"></div>
         </div>

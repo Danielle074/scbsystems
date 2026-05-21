@@ -15,8 +15,8 @@
           QUI SOMMES-NOUS
         </div>
         <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight">
-          <span class="text-white">À Propos</span>
-          <span class="text-transparent bg-clip-text" style="background-image: linear-gradient(135deg, #ffffff, #a0a8e0, #101E89);"> de Nous</span>
+          <span class="text-white">À propos</span>
+          <span class="text-transparent bg-clip-text" style="background-image: linear-gradient(135deg, #ffffff, #a0a8e0, #101E89);"> de nous</span>
         </h1>
         <div class="w-24 h-1 mx-auto rounded-full mb-6" style="background-color: #101E89;"></div>
         <p class="text-white text-lg md:text-xl leading-relaxed max-w-3xl mx-auto" style="text-shadow: 0 4px 18px rgba(0, 0, 0, 0.35)">
@@ -48,12 +48,12 @@
               </h2>
               <div class="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  SCB Systems est une entreprise leader dans le domaine de l'ingénierie 
+                  SCB SYSTEMS est une entreprise leader dans le domaine de l'ingénierie 
                   et de la technologie innovante en Afrique et dans le monde.
                 </p>
                 <p>
                   Fondée avec la vision de transformer le paysage technologique, 
-                  SCB Systems accompagne tous les secteurs d'activité, du primaire au 
+                  SCB SYSTEMS accompagne tous les secteurs d'activité, du primaire au 
                   secondaire, en passant par le tertiaire et le quaternaire.
                 </p>
                 <p>
@@ -63,7 +63,7 @@
                 <p>
                   Notre expertise diversifiée nous permet d'être les meilleurs garants 
                   de votre réussite. Avec une présence en Afrique, aux États-Unis et en France, 
-                  SCB Systems réunit une équipe de talents passionnés.
+                  SCB SYSTEMS réunit une équipe de talents passionnés.
                 </p>
               </div>
             </div>
@@ -249,7 +249,7 @@
               NOTRE IMPACT
             </span>
             <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
-              SCB Systems en chiffres
+              SCB SYSTEMS en chiffres
             </h2>
             <div class="w-20 h-1 mx-auto rounded-full bg-white"></div>
           </div>

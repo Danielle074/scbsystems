@@ -14,7 +14,7 @@
         </h1>
         <div class="w-24 h-1 mx-auto rounded-full " style="background-color: #101E89;"></div>
         <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-          Chez SCB Systems, nous partageons nos dernières innovations technologiques, 
+          Chez SCB SYSTEMS, nous partageons nos dernières innovations technologiques, 
           projets et événements pour rester connectés avec nos clients et partenaires à travers le monde.
         </p>
       </div>
@@ -234,7 +234,7 @@ export default {
         date: "20 septembre 2025",
         description: "Découvrez nos drones performants pour l'agriculture, la construction et la surveillance.",
         image: scbDroneImage,
-        fullContent: `SCB Systems est fier d'annoncer le lancement de SCB Drone, une plateforme révolutionnaire dédiée aux solutions drones innovantes. Cette technologie de pointe transformera les secteurs de l'agriculture, de la construction et de la surveillance.
+        fullContent: `SCB SYSTEMS est fier d'annoncer le lancement de SCB Drone, une plateforme révolutionnaire dédiée aux solutions drones innovantes. Cette technologie de pointe transformera les secteurs de l'agriculture, de la construction et de la surveillance.
 
 Nos drones équipés de capteurs avancés permettent :
 • L'analyse des cultures en temps réel
@@ -255,7 +255,7 @@ Cette innovation s'inscrit dans notre vision d'apporter des solutions technologi
         date: "10 septembre 2025",
         description: "Renforcement de nos capacités en IA et machine learning.",
         image: affairesImage,
-        fullContent: `SCB Systems a le plaisir d'annoncer un partenariat stratégique majeur avec une organisation internationale leader dans le domaine de l'intelligence artificielle.
+        fullContent: `SCB SYSTEMS a le plaisir d'annoncer un partenariat stratégique majeur avec une organisation internationale leader dans le domaine de l'intelligence artificielle.
 
 Les bénéfices de ce partenariat incluent :
 • Développement d'algorithmes IA avancés
@@ -263,7 +263,7 @@ Les bénéfices de ce partenariat incluent :
 • Formation de nos équipes aux dernières technologies
 • Accès à des ressources de recherche de pointe
 
-Ce partenariat positionne SCB Systems comme un acteur majeur dans le domaine de l'IA en Afrique et au-delà.`,
+Ce partenariat positionne SCB SYSTEMS comme un acteur majeur dans le domaine de l'IA en Afrique et au-delà.`,
         relatedVideos: [
           { url: "https://www.youtube.com/watch?v=QJn28fFKUR0", title: "IA et Machine Learning", description: "Les bases de l'intelligence artificielle expliquées" },
           { url: "https://www.youtube.com/watch?v=JMUxmLyrhSk", title: "L'IA dans les Affaires", description: "Comment l'IA transforme les entreprises modernes" }
@@ -279,7 +279,7 @@ Ce partenariat positionne SCB Systems comme un acteur majeur dans le domaine de 
         fullContent: `Le SCB Tech Summit 2025 a connu un succès retentissant avec la participation de plus de 500 professionnels du secteur technologique.
 
 Points marquants de l'événement :
-• Présentation de SCB Academy
+• Présentation de SCB ACADEMY
 • Démo live de SCB Drone
 • Tables rondes sur l'IA et la blockchain
 • Ateliers de formation technique

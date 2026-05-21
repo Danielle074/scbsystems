@@ -13,7 +13,7 @@
           CARRIÈRES
         </div>
         <h1 class="text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-lg">
-          SCB Systems
+          SCB SYSTEMS
         </h1>
         <div class="w-24 h-1 mx-auto rounded-full mb-6 bg-white"></div>
         <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
