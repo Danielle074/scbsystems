@@ -220,7 +220,7 @@
         </div>
 
         <!-- Grille  -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 justify-items-center items-center">
+          <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 justify-items-center items-center">
           <div v-for="(partner, index) in partners" :key="index" class="text-center">
             <div class="rounded-xl p-4 hover:shadow-md transition-all duration-300 flex items-center justify-center h-32 w-60">
               <img :src="partner.logo" :alt="partner.name" class="max-w-full max-h-16 object-contain" />
@@ -335,17 +335,30 @@
       </div>
     </section>
 
-    <!-- Section Certifications -->
-    <section class="py-10 sm:py-16 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-10" style="color: #101E89;">Nos Certifications</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 justify-items-center">
-          <div v-for="(cert, i) in certifications" :key="i" class="text-center">
-            <img :src="cert.image" :alt="cert.title" class="w-42 h-32 sm:w-20 sm:h-20 object-contain" />
-          </div>
-        </div>
+  <!-- Section Certifications -->
+<section class="py-10 sm:py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-10" style="color: #101E89;">
+      Nos Certifications
+    </h2>
+
+    <!-- Grille -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 justify-items-center">
+      
+        <div v-for="(cert, i) in certifications" :key="i" class="text-center">
+        
+        <img 
+          :src="cert.image" 
+          :alt="cert.title" 
+          class="w-48 h-36 sm:w-32 sm:h-24 md:w-28 md:h-24 object-contain transition-transform duration-300 hover:scale-105"
+        />
       </div>
-    </section>
+
+    </div>
+
+  </div>
+</section>
 
     <!-- Bouton retour en haut -->
     <button @click="scrollToTop" v-show="showScrollTop" class="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 text-white w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg transition transform hover:scale-110 z-50 text-xl sm:text-2xl" style="background-color: #101E89;">
@@ -390,6 +403,7 @@ import hclLogo from "../assets/images/hcl.png";
 import nsicorpsLogo from "../assets/images/Nsicorps.png";
 import mobileumLogo from "../assets/images/mobileum.png";
 import seedspotLogo from "../assets/images/SeedSpot.png";
+import onecilogo from "../assets/images/oneci.png"
 
 // Certifications
 import cert1 from "../assets/images/certification1.png";
@@ -435,6 +449,7 @@ const partners = [
   { name: "Nsicorps", logo: nsicorpsLogo, type: "Partenaire Cloud" },
   { name: "Mobileum", logo: mobileumLogo, type: "Partenaire Cloud" },
   { name: "SeedSpot", logo: seedspotLogo, type: "Partenaire Hardware" },
+   { name: "oneci", logo: onecilogo, type: "Partenaire référence" },
 ];
 
 // Certifications
